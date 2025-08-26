@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>🚨 Emergency Dashboard 🚨</h1>
+
+  <div class="buttons">
+    <button onclick="callNumber('101')">🚒 Fire Station (101)</button>
+    <button onclick="callNumber('100')">👮 Police (100)</button>
+    <button onclick="callNumber('108')">🚑 Ambulance (108)</button>
+  </div>
+
+  <button id="voiceBtn">🎤 Voice Command</button>
+  <p id="status">Ready.</p>
+
+  <script src="app.js"></script>
+</body>
+</html>

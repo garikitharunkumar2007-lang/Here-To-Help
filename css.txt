@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.buttons {
+  margin: 20px;
+}
+
+button {
+  display: block;
+  width: 250px;
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#voiceBtn {
+  background: #007bff;
+  color: white;
+}

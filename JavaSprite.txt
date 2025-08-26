@@ -1,0 +1,39 @@
+// Call Emergency Number (opens dialer in mobile browser)
+function callNumber(number) {
+  document.getElementById("status").innerText = `Dialing ${number}...`;
+  window.location.href = `tel:${number}`;
+}
+
+// Voice Command Feature (Web Speech API)
+const voiceBtn = document.getElementById("voiceBtn");
+const statusEl = document.getElementById("status");
+
+voiceBtn.addEventListener("click", () => {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    statusEl.innerText = "Voice commands not supported in this browser.";
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.start();
+
+  recognition.onstart = () => {
+    statusEl.innerText = "Listening... Say Ambulance, Police or Fire.";
+  };
+
+  recognition.onresult = (event) => {
+    const command = event.results[0][0].transcript.toLowerCase();
+    statusEl.innerText = `Heard: ${command}`;
+
+    if (command.includes("ambulance")) callNumber("108");
+    else if (command.includes("police")) callNumber("100");
+    else if (command.includes("fire")) callNumber("101");
+    else statusEl.innerText = "Command not recognized.";
+  };
+
+  recognition.onerror = () => {
+    statusEl.innerText = "Mic error or permission denied.";
+  };
+});
